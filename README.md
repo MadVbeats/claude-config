@@ -26,6 +26,7 @@ powershell -ExecutionPolicy Bypass -File .\install.ps1
 | `find-skills` | Поиск и установка навыков из открытого каталога [skills.sh](https://skills.sh) через `npx skills` ([vercel-labs/skills](https://github.com/vercel-labs/skills), MIT). Нужен Node.js 22.20+ |
 | `grill-me` + `grilling` | Жёсткое интервью по плану или идее: вопросы раундами с рекомендуемыми ответами, пока не останется непроговорённых решений. `/grill-me` вызывает `grilling` ([mattpocock/skills](https://github.com/mattpocock/skills), MIT) |
 | `cybersecurity-skills` | Навигатор по 818 процедурам кибербезопасности ([mukul975/anthropic-cybersecurity-skills](https://github.com/mukul975/anthropic-cybersecurity-skills), Apache-2.0, не от Anthropic). Сам каталог (31 МБ) `install.ps1` клонирует в `~/.claude/skill-data/`, навык читает нужные процедуры по запросу |
+| `impeccable` | Дизайн интерфейсов: 24 команды (`/impeccable audit`, `critique`, `polish`, `typeset`, `colorize`, `layout`, `animate`, `document`, `live`…) + 4 агента `impeccable-*` ([pbakaus/impeccable](https://github.com/pbakaus/impeccable) v4.9.1, Apache-2.0). **Без хуков плагина.** Движок (Rust) скачивается при первом запуске с проверкой SHA-256; телеметрия отключается `IMPECCABLE_NO_TELEMETRY=1` |
 
 ### Из ECC ([affaan-m/ecc](https://github.com/affaan-m/ecc) v2.2.3, MIT — см. `LICENSE-ECC`)
 
