@@ -1,4 +1,4 @@
-﻿# Устанавливает навыки, агентов, команды и CLAUDE.md из этого репозитория в ~/.claude
+﻿# Устанавливает навыки, агентов, команды, правила и CLAUDE.md из этого репозитория в ~/.claude
 # Запуск:  powershell -ExecutionPolicy Bypass -File .\install.ps1
 # Существующие файлы с тем же именем сохраняются в ~/.claude/backups/claude-config-<дата>
 
@@ -9,7 +9,7 @@ $backup = Join-Path $dst ("backups\claude-config-" + (Get-Date -Format 'yyyyMMdd
 
 New-Item -ItemType Directory -Force $dst | Out-Null
 
-foreach ($dir in 'skills', 'agents', 'commands') {
+foreach ($dir in 'skills', 'agents', 'commands', 'rules') {
     $from = Join-Path $src $dir
     if (-not (Test-Path $from)) { continue }
     $to = Join-Path $dst $dir
