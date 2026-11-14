@@ -41,6 +41,13 @@ powershell -ExecutionPolicy Bypass -File .\install.ps1
 | `career-ops` | Навык приложения [career-ops](https://github.com/career-ops-hq/career-ops) (MIT): оценка вакансий (отчёт A–H, балл 1–5), адаптация резюме, письма, трекер откликов, подготовка к собеседованиям. Само приложение ставится отдельно (`npx @santifer/career-ops init` или `git clone` + `npm install` + `npx playwright install chromium`), путь к нему — в переменной `CAREER_OPS_ROOT` (задаётся вручную на каждом ПК). Личные данные в claude-config не кладутся |
 | `claude-code-best-practice` | Навигатор по базе лучших практик Claude Code ([shanraisshan/claude-code-best-practice](https://github.com/shanraisshan/claude-code-best-practice), MIT): настройки, память, навыки, агенты, хуки, MCP, 84 совета создателей, отчёты про лимиты. Репозиторий (~78 МБ с медиа) `install.ps1` клонирует в `~/.claude/skill-data/` |
 
+### Отдельные проекты (не ставятся `install.ps1`)
+
+| Проект | Как поставить |
+|---|---|
+| [career-ops](https://github.com/career-ops-hq/career-ops) | `git clone` в свою папку → `npm install` → `npx playwright install chromium`; путь — в `CAREER_OPS_ROOT` в `env` settings.json |
+| [ai-website-cloner-template](https://github.com/JCodesMore/ai-website-cloner-template) (MIT) | `git clone` в свою папку → `git remote remove origin` → `npm ci` → `npm run check`. В папке открыть Claude и вызвать `/clone-website <url>`. Только свои сайты или учёба; правила — в `CLAUDE.md` проекта (скопировать из домашней копии) |
+
 ### Плагины (`enabled-plugins.json`) и переменные (`settings-env.json`)
 
 `install.ps1` дописывает плагины в `enabledPlugins`, а переменные из `settings-env.json` — в `env` в `~/.claude/settings.json`, не трогая остальные настройки (старая версия сохраняется в `backups`). В `settings-env.json` — только несекретные значения: репозиторий публичный.
