@@ -37,6 +37,28 @@ if (Test-Path $md) {
     Write-Host "OK  CLAUDE.md"
 }
 
+# Плагины из маркетплейсов: дописываем enabledPlugins в ~/.claude/settings.json, остальное не трогаем
+$pluginsFile = Join-Path $src 'enabled-plugins.json'
+if (Test-Path $pluginsFile) {
+    $settingsPath = Join-Path $dst 'settings.json'
+    $settings = if (Test-Path $settingsPath) { Get-Content $settingsPath -Raw -Encoding UTF8 | ConvertFrom-Json } else { New-Object PSObject }
+    if (-not $settings) { $settings = New-Object PSObject }
+    if (-not ($settings.PSObject.Properties.Name -contains 'enabledPlugins')) {
+        $settings | Add-Member -NotePropertyName enabledPlugins -NotePropertyValue (New-Object PSObject)
+    }
+    $wanted = Get-Content $pluginsFile -Raw -Encoding UTF8 | ConvertFrom-Json
+    foreach ($p in $wanted.PSObject.Properties) {
+        if ($settings.enabledPlugins.PSObject.Properties.Name -contains $p.Name) { $settings.enabledPlugins.($p.Name) = $p.Value }
+        else { $settings.enabledPlugins | Add-Member -NotePropertyName $p.Name -NotePropertyValue $p.Value }
+        Write-Host "OK  plugin $($p.Name)"
+    }
+    if (Test-Path $settingsPath) {
+        New-Item -ItemType Directory -Force $backup | Out-Null
+        Copy-Item $settingsPath (Join-Path $backup 'settings.json')
+    }
+    [IO.File]::WriteAllText($settingsPath, ($settings | ConvertTo-Json -Depth 20), (New-Object Text.UTF8Encoding $false))
+}
+
 # Большие каталоги, которые навыки читают по запросу (клонируются, а не хранятся в этом репозитории)
 $dataRepos = @{
     'anthropic-cybersecurity-skills' = 'https://github.com/mukul975/anthropic-cybersecurity-skills.git'

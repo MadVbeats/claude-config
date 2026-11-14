@@ -31,6 +31,14 @@ powershell -ExecutionPolicy Bypass -File .\install.ps1
 | `claude-automation-recommender` | Официальный плагин Anthropic `claude-code-setup`: анализирует проект и советует 1–2 лучших хука, навыка, агента, MCP-сервера и команды под его стек. Только читает, ничего не меняет ([anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official), Apache-2.0) |
 | `task-observer` | Мета-навык: копит наблюдения о поправках и повторяющейся работе, предлагает улучшения навыков и новые навыки, ведёт еженедельный разбор ([rebelytics/one-skill-to-rule-them-all](https://github.com/rebelytics/one-skill-to-rule-them-all) v3.10.0, CC BY 4.0). **Только по запросу:** описание изменено, автозапуска и хука нет. Заметки — в `~/.claude/skill-observations/` |
 
+### Плагины (`enabled-plugins.json`)
+
+`install.ps1` дописывает их в `enabledPlugins` в `~/.claude/settings.json`, не трогая остальные настройки (старая версия сохраняется в `backups`).
+
+| Плагин | Что делает |
+|---|---|
+| `context7@claude-plugins-official` | Официальный плагин: подключает облачный MCP-сервер Context7 (Upstash) с актуальной документацией библиотек по версиям (Next.js, React, Prisma, Tailwind…). Без Node.js; без ключа работает анонимно с общими лимитами, свой ключ — переменная `CONTEXT7_API_KEY` |
+
 ### Из ECC ([affaan-m/ecc](https://github.com/affaan-m/ecc) v2.2.3, MIT — см. `LICENSE-ECC`)
 
 Выборка под веб-стек Next.js / React / TypeScript / Tailwind / Prisma. Без хуков ECC.
