@@ -1,0 +1,28 @@
+# Секреты и данные входа — никогда не коммитить
+.credentials.json
+.claude.json
+*.credentials*
+*.token
+*.key
+*.pem
+.env
+.env.*
+mcp-needs-auth-cache.json
+
+# Личное и служебное Claude Code
+projects/
+memory/
+sessions/
+session-env/
+file-history/
+backups/
+cache/
+spares/
+plugins/
+settings.local.json
+.last-cleanup
+
+# Мусор
+Thumbs.db
+desktop.ini
+.DS_Store
