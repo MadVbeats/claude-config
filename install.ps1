@@ -37,5 +37,22 @@ if (Test-Path $md) {
     Write-Host "OK  CLAUDE.md"
 }
 
+# Большие каталоги, которые навыки читают по запросу (клонируются, а не хранятся в этом репозитории)
+$dataRepos = @{
+    'anthropic-cybersecurity-skills' = 'https://github.com/mukul975/anthropic-cybersecurity-skills.git'
+}
+$dataDir = Join-Path $dst 'skill-data'
+New-Item -ItemType Directory -Force $dataDir | Out-Null
+foreach ($name in $dataRepos.Keys) {
+    $target = Join-Path $dataDir $name
+    if (Test-Path (Join-Path $target '.git')) {
+        git -C $target pull -q --depth 1
+        Write-Host "OK  skill-data\$name (обновлён)"
+    } else {
+        git clone -q --depth 1 $dataRepos[$name] $target
+        Write-Host "OK  skill-data\$name (склонирован)"
+    }
+}
+
 if (Test-Path $backup) { Write-Host "Старые версии сохранены в $backup" }
 Write-Host "Готово. Перезапустите Claude Code, чтобы навыки подхватились."

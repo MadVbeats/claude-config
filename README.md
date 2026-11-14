@@ -25,6 +25,7 @@ powershell -ExecutionPolicy Bypass -File .\install.ps1
 | `build-your-own-x` | Каталог ~360 туториалов «напиши с нуля» из [codecrafters-io/build-your-own-x](https://github.com/codecrafters-io/build-your-own-x) |
 | `find-skills` | Поиск и установка навыков из открытого каталога [skills.sh](https://skills.sh) через `npx skills` ([vercel-labs/skills](https://github.com/vercel-labs/skills), MIT). Нужен Node.js 22.20+ |
 | `grill-me` + `grilling` | Жёсткое интервью по плану или идее: вопросы раундами с рекомендуемыми ответами, пока не останется непроговорённых решений. `/grill-me` вызывает `grilling` ([mattpocock/skills](https://github.com/mattpocock/skills), MIT) |
+| `cybersecurity-skills` | Навигатор по 818 процедурам кибербезопасности ([mukul975/anthropic-cybersecurity-skills](https://github.com/mukul975/anthropic-cybersecurity-skills), Apache-2.0, не от Anthropic). Сам каталог (31 МБ) `install.ps1` клонирует в `~/.claude/skill-data/`, навык читает нужные процедуры по запросу |
 
 ### Из ECC ([affaan-m/ecc](https://github.com/affaan-m/ecc) v2.2.3, MIT — см. `LICENSE-ECC`)
 
