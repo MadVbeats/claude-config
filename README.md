@@ -29,6 +29,7 @@ powershell -ExecutionPolicy Bypass -File .\install.ps1
 | `impeccable` | Дизайн интерфейсов: 24 команды (`/impeccable audit`, `critique`, `polish`, `typeset`, `colorize`, `layout`, `animate`, `document`, `live`…) + 4 агента `impeccable-*` ([pbakaus/impeccable](https://github.com/pbakaus/impeccable) v4.9.1, Apache-2.0). **Без хуков плагина.** Движок (Rust) скачивается при первом запуске с проверкой SHA-256; телеметрия отключается `IMPECCABLE_NO_TELEMETRY=1` |
 | `headroom` | Как встроить `compress()` из `headroom-ai` в своё приложение, которое вызывает LLM, чтобы тратить меньше токенов API ([headroomlabs-ai/headroom](https://github.com/headroomlabs-ai/headroom), Apache-2.0). Только навык, без прокси для Claude Code |
 | `claude-automation-recommender` | Официальный плагин Anthropic `claude-code-setup`: анализирует проект и советует 1–2 лучших хука, навыка, агента, MCP-сервера и команды под его стек. Только читает, ничего не меняет ([anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official), Apache-2.0) |
+| `task-observer` | Мета-навык: копит наблюдения о поправках и повторяющейся работе, предлагает улучшения навыков и новые навыки, ведёт еженедельный разбор ([rebelytics/one-skill-to-rule-them-all](https://github.com/rebelytics/one-skill-to-rule-them-all) v3.10.0, CC BY 4.0). **Только по запросу:** описание изменено, автозапуска и хука нет. Заметки — в `~/.claude/skill-observations/` |
 
 ### Из ECC ([affaan-m/ecc](https://github.com/affaan-m/ecc) v2.2.3, MIT — см. `LICENSE-ECC`)
 
