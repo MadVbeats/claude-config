@@ -74,6 +74,7 @@ if (Test-Path $pluginsFile) {
 $dataRepos = @{
     'anthropic-cybersecurity-skills' = 'https://github.com/mukul975/anthropic-cybersecurity-skills.git'
     'awesome-mcp-servers'            = 'https://github.com/punkpeye/awesome-mcp-servers.git'
+    'claude-code-best-practice'      = 'https://github.com/shanraisshan/claude-code-best-practice.git'
 }
 $dataDir = Join-Path $dst 'skill-data'
 New-Item -ItemType Directory -Force $dataDir | Out-Null
