@@ -62,6 +62,7 @@ if (Test-Path $pluginsFile) {
 # Большие каталоги, которые навыки читают по запросу (клонируются, а не хранятся в этом репозитории)
 $dataRepos = @{
     'anthropic-cybersecurity-skills' = 'https://github.com/mukul975/anthropic-cybersecurity-skills.git'
+    'awesome-mcp-servers'            = 'https://github.com/punkpeye/awesome-mcp-servers.git'
 }
 $dataDir = Join-Path $dst 'skill-data'
 New-Item -ItemType Directory -Force $dataDir | Out-Null

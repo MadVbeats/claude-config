@@ -30,6 +30,7 @@ powershell -ExecutionPolicy Bypass -File .\install.ps1
 | `headroom` | Как встроить `compress()` из `headroom-ai` в своё приложение, которое вызывает LLM, чтобы тратить меньше токенов API ([headroomlabs-ai/headroom](https://github.com/headroomlabs-ai/headroom), Apache-2.0). Только навык, без прокси для Claude Code |
 | `claude-automation-recommender` | Официальный плагин Anthropic `claude-code-setup`: анализирует проект и советует 1–2 лучших хука, навыка, агента, MCP-сервера и команды под его стек. Только читает, ничего не меняет ([anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official), Apache-2.0) |
 | `task-observer` | Мета-навык: копит наблюдения о поправках и повторяющейся работе, предлагает улучшения навыков и новые навыки, ведёт еженедельный разбор ([rebelytics/one-skill-to-rule-them-all](https://github.com/rebelytics/one-skill-to-rule-them-all) v3.10.0, CC BY 4.0). **Только по запросу:** описание изменено, автозапуска и хука нет. Заметки — в `~/.claude/skill-observations/` |
+| `mcp-servers-catalog` | Навигатор по ~4600 MCP-серверам из [punkpeye/awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers) (MIT): находит подходящий сервер под задачу, проверяет его и подключает только с согласия. Каталог `install.ps1` клонирует в `~/.claude/skill-data/` |
 
 ### Плагины (`enabled-plugins.json`)
 
