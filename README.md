@@ -39,13 +39,14 @@ powershell -ExecutionPolicy Bypass -File .\install.ps1
 | `mcp-servers-catalog` | Навигатор по ~4600 MCP-серверам из [punkpeye/awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers) (MIT): находит подходящий сервер под задачу, проверяет его и подключает только с согласия. Каталог `install.ps1` клонирует в `~/.claude/skill-data/` |
 | `design-taste-frontend` | tasteskill 2.5.1: сайты компаний уровня figma.com / x.ai без «ИИ-шаблонности» — секция на экран, настоящие фото и интерфейс продукта, эффекты только для tech/игр, проверка в настоящем браузере ([Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill), MIT; ~35 МБ ассетов с лицензиями в credits-файлах). Нужны Node 22+, bash и Chrome — ставятся `setup-tools.ps1`. Stop-хук оригинальный (финальная проверка страницы через Git Bash) |
 
-### Плагины (`enabled-plugins.json`)
+### Плагины (`enabled-plugins.json`) и переменные (`settings-env.json`)
 
-`install.ps1` дописывает их в `enabledPlugins` в `~/.claude/settings.json`, не трогая остальные настройки (старая версия сохраняется в `backups`).
+`install.ps1` дописывает плагины в `enabledPlugins`, а переменные из `settings-env.json` — в `env` в `~/.claude/settings.json`, не трогая остальные настройки (старая версия сохраняется в `backups`). В `settings-env.json` — только несекретные значения: репозиторий публичный.
 
 | Плагин | Что делает |
 |---|---|
 | `context7@claude-plugins-official` | Официальный плагин: подключает облачный MCP-сервер Context7 (Upstash) с актуальной документацией библиотек по версиям (Next.js, React, Prisma, Tailwind…). Без Node.js; без ключа работает анонимно с общими лимитами, свой ключ — переменная `CONTEXT7_API_KEY` |
+| `superpowers@claude-plugins-official` | [obra/superpowers](https://github.com/obra/superpowers) v7 (MIT): 14 навыков-процессов — brainstorming → план → TDD → систематическая отладка → проверка перед «готово» → ревью, плюс написание навыков. SessionStart-хук (через Git Bash) добавляет короткое вступление `using-superpowers`, из-за которого навыки включаются сами. Телеметрия выключена `SUPERPOWERS_DISABLE_TELEMETRY=1` |
 
 ### Из ECC ([affaan-m/ecc](https://github.com/affaan-m/ecc) v2.2.3, MIT — см. `LICENSE-ECC`)
 

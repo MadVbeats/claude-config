@@ -52,6 +52,17 @@ if (Test-Path $pluginsFile) {
         else { $settings.enabledPlugins | Add-Member -NotePropertyName $p.Name -NotePropertyValue $p.Value }
         Write-Host "OK  plugin $($p.Name)"
     }
+    # Общие переменные окружения (без секретов!) из settings-env.json
+    $envFile = Join-Path $src 'settings-env.json'
+    if (Test-Path $envFile) {
+        if (-not ($settings.PSObject.Properties.Name -contains 'env')) { $settings | Add-Member -NotePropertyName env -NotePropertyValue (New-Object PSObject) }
+        $wantedEnv = Get-Content $envFile -Raw -Encoding UTF8 | ConvertFrom-Json
+        foreach ($e in $wantedEnv.PSObject.Properties) {
+            if ($settings.env.PSObject.Properties.Name -contains $e.Name) { $settings.env.($e.Name) = $e.Value }
+            else { $settings.env | Add-Member -NotePropertyName $e.Name -NotePropertyValue $e.Value }
+            Write-Host "OK  env $($e.Name)"
+        }
+    }
     if (Test-Path $settingsPath) {
         New-Item -ItemType Directory -Force $backup | Out-Null
         Copy-Item $settingsPath (Join-Path $backup 'settings.json')
