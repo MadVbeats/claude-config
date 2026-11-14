@@ -10,6 +10,12 @@ cd claude-config
 powershell -ExecutionPolicy Bypass -File .\install.ps1
 ```
 
+Инструменты для навыков (Portable Git с bash и Chrome for Testing, без прав администратора; пути пишутся в `env` в `~/.claude/settings.json`):
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\setup-tools.ps1
+```
+
 ## Обновление
 
 ```powershell
@@ -31,6 +37,7 @@ powershell -ExecutionPolicy Bypass -File .\install.ps1
 | `claude-automation-recommender` | Официальный плагин Anthropic `claude-code-setup`: анализирует проект и советует 1–2 лучших хука, навыка, агента, MCP-сервера и команды под его стек. Только читает, ничего не меняет ([anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official), Apache-2.0) |
 | `task-observer` | Мета-навык: копит наблюдения о поправках и повторяющейся работе, предлагает улучшения навыков и новые навыки, ведёт еженедельный разбор ([rebelytics/one-skill-to-rule-them-all](https://github.com/rebelytics/one-skill-to-rule-them-all) v3.10.0, CC BY 4.0). **Только по запросу:** описание изменено, автозапуска и хука нет. Заметки — в `~/.claude/skill-observations/` |
 | `mcp-servers-catalog` | Навигатор по ~4600 MCP-серверам из [punkpeye/awesome-mcp-servers](https://github.com/punkpeye/awesome-mcp-servers) (MIT): находит подходящий сервер под задачу, проверяет его и подключает только с согласия. Каталог `install.ps1` клонирует в `~/.claude/skill-data/` |
+| `design-taste-frontend` | tasteskill 2.5.1: сайты компаний уровня figma.com / x.ai без «ИИ-шаблонности» — секция на экран, настоящие фото и интерфейс продукта, эффекты только для tech/игр, проверка в настоящем браузере ([Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill), MIT; ~35 МБ ассетов с лицензиями в credits-файлах). Нужны Node 22+, bash и Chrome — ставятся `setup-tools.ps1`. Stop-хук оригинальный (финальная проверка страницы через Git Bash) |
 
 ### Плагины (`enabled-plugins.json`)
 
