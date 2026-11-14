@@ -28,6 +28,7 @@ powershell -ExecutionPolicy Bypass -File .\install.ps1
 | `cybersecurity-skills` | Навигатор по 818 процедурам кибербезопасности ([mukul975/anthropic-cybersecurity-skills](https://github.com/mukul975/anthropic-cybersecurity-skills), Apache-2.0, не от Anthropic). Сам каталог (31 МБ) `install.ps1` клонирует в `~/.claude/skill-data/`, навык читает нужные процедуры по запросу |
 | `impeccable` | Дизайн интерфейсов: 24 команды (`/impeccable audit`, `critique`, `polish`, `typeset`, `colorize`, `layout`, `animate`, `document`, `live`…) + 4 агента `impeccable-*` ([pbakaus/impeccable](https://github.com/pbakaus/impeccable) v4.9.1, Apache-2.0). **Без хуков плагина.** Движок (Rust) скачивается при первом запуске с проверкой SHA-256; телеметрия отключается `IMPECCABLE_NO_TELEMETRY=1` |
 | `headroom` | Как встроить `compress()` из `headroom-ai` в своё приложение, которое вызывает LLM, чтобы тратить меньше токенов API ([headroomlabs-ai/headroom](https://github.com/headroomlabs-ai/headroom), Apache-2.0). Только навык, без прокси для Claude Code |
+| `claude-automation-recommender` | Официальный плагин Anthropic `claude-code-setup`: анализирует проект и советует 1–2 лучших хука, навыка, агента, MCP-сервера и команды под его стек. Только читает, ничего не меняет ([anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official), Apache-2.0) |
 
 ### Из ECC ([affaan-m/ecc](https://github.com/affaan-m/ecc) v2.2.3, MIT — см. `LICENSE-ECC`)
 
